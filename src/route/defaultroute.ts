@@ -4,7 +4,6 @@ export const defaultRoute = {
   signup: "/signup",
   forgotpass: "/forgotpass",
   contact: "/contact",
-  wishlist: "/wishlist",
   profile: "/profile",
   resetpass: "/resetpass",
   usermanagement: "/usermanagement",
