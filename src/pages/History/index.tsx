@@ -1,0 +1,121 @@
+import bg1 from '../../images/bg_1.jpg';
+import { hideTextIdCard } from '../../utils';
+
+interface Props {}
+
+const History = (props: Props) => {
+	const listHistory = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5];
+	return (
+		<main>
+			<section id='home-section' className='hero'>
+				<div className='home-slider owl-carousel'>
+					<div>
+						<div
+							className='slider-item'
+							style={{ backgroundImage: `url(${bg1})` }}>
+							<div className='overlay'></div>
+							<div className='container'>
+								<div
+									className='
+								row
+								slider-text
+								justify-content-center
+								align-items-center
+							'
+									data-scrollax-parent='true'>
+									<div className='col-md-12 text-center'>
+										<h1 className='mb-2'>Weebies</h1>
+										<h2 className='subheading mb-4'>Card Payment Service</h2>
+										<h3 className='subheading_1 mb-4'>
+											Weebies have been serving million of card holders and over
+											6,000 merchants
+										</h3>
+										<p></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div className='container px-[50px] mt-5'>
+				<p className='text-3xl'>History Transaction</p>
+				<div className='flex flex-col mt-5'>
+					<div className='-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
+						<div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
+							<div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
+								<table className='min-w-full divide-y divide-gray-200'>
+									<thead className='bg-gray-50'>
+										<tr>
+											<th
+												scope='col'
+												className='text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
+												Id Card
+											</th>
+											<th
+												scope='col'
+												className='text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
+												Money
+											</th>
+											<th
+												scope='col'
+												className=' text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
+												Date
+											</th>
+											<th
+												scope='col'
+												className=' text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
+												Status
+											</th>
+										</tr>
+									</thead>
+									<tbody className='bg-white divide-y divide-gray-200'>
+										{listHistory.map((item, index) => (
+											<tr key={index}>
+												<td className='px-6 py-4 whitespace-nowrap'>
+													<div className='flex items-center'>
+														<div className='flex-shrink-0 h-10 w-10'>
+															<img
+																className='h-10 w-10 rounded-full'
+																src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60'
+																alt=''
+															/>
+														</div>
+														<div className='ml-4'>
+															<div className='text-base font-medium text-gray-900'>
+																To Thi My Den
+															</div>
+															<div className='text-base text-gray-500'>
+																{hideTextIdCard('1234567890122345')}
+															</div>
+														</div>
+													</div>
+												</td>
+												<td className='px-6 py-4 whitespace-nowrap'>
+													<div className='text-base text-gray-900'>
+														40.3 USD
+													</div>
+												</td>
+												<td className='px-6 py-4 whitespace-nowrap'>
+													{' '}
+													19:00 20/10/2020
+												</td>
+												<td className='px-6 py-4 whitespace-nowrap text-base text-gray-500'>
+													<span className='px-4 py-2 inline-flex text-base leading-5 font-semibold rounded-full bg-green-100 text-green-800'>
+														Transfer
+													</span>
+												</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	);
+};
+
+export default History;
