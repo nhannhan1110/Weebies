@@ -1,10 +1,22 @@
+import React from 'react';
+import { historyTransaction } from '../../apis/transaction/historyTransaction';
 import bg1 from '../../images/bg_1.jpg';
 import { hideTextIdCard } from '../../utils';
+import dayjs from 'dayjs';
 
 interface Props {}
 
 const History = (props: Props) => {
-	const listHistory = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5];
+	const [histories, setHistories] = React.useState([]);
+	const status = ['Transfers', 'Received Money', 'Recharge'];
+	const historyApi = async () => {
+		const results = await historyTransaction();
+		setHistories(results.data);
+	};
+
+	React.useEffect(() => {
+		historyApi();
+	}, []);
 	return (
 		<main>
 			<section id='home-section' className='hero'>
@@ -70,7 +82,7 @@ const History = (props: Props) => {
 										</tr>
 									</thead>
 									<tbody className='bg-white divide-y divide-gray-200'>
-										{listHistory.map((item, index) => (
+										{histories.map((item: any, index) => (
 											<tr key={index}>
 												<td className='px-6 py-4 whitespace-nowrap'>
 													<div className='flex items-center'>
@@ -83,26 +95,28 @@ const History = (props: Props) => {
 														</div>
 														<div className='ml-4'>
 															<div className='text-base font-medium text-gray-900'>
-																To Thi My Den
+															{item.sender.firstName} {item.sender.lastName}
 															</div>
 															<div className='text-base text-gray-500'>
-																{hideTextIdCard('1234567890122345')}
+															{hideTextIdCard(item.cardSender.cardNumber)}
 															</div>
 														</div>
 													</div>
 												</td>
 												<td className='px-6 py-4 whitespace-nowrap'>
 													<div className='text-base text-gray-900'>
-														40.3 USD
+													{item.transaction.transactionAmount} USD
 													</div>
 												</td>
 												<td className='px-6 py-4 whitespace-nowrap'>
 													{' '}
-													19:00 20/10/2020
+													{dayjs(item.transaction.createdAt).format(
+														'HH:mm DD/MM/YYYY'
+													)}
 												</td>
 												<td className='px-6 py-4 whitespace-nowrap text-base text-gray-500'>
 													<span className='px-4 py-2 inline-flex text-base leading-5 font-semibold rounded-full bg-green-100 text-green-800'>
-														Transfer
+													{status[item.transaction.status]}
 													</span>
 												</td>
 											</tr>

@@ -13,6 +13,14 @@ export const signUpSchema = yup.object().shape({
 	confirmPassword: yup.string().required('ConfirmPassword is required'),
 	// typeCard: yup.string().required('TypeCard is required')
 });
+export const payInSchema = yup.object().shape({
+	amount: yup.string().required('Amount is required'),
+	typeCard: yup.number().required('TypeCard is required'),
+	cardNumber: yup.string().required('CardNumber is required'),
+	// expirationDate: yup.string().required('ExpirationDate is required'),
+	cvv: yup.string().required('CVV is required'),
+	password: yup.string().required('NameCard is required'),
+})
 
 export const signInSchema = yup.object().shape({
 	email: yup.string().email().required('Please enter the required field'),
