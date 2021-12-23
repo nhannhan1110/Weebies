@@ -105,7 +105,11 @@ export const ProfilePage = (props: ProfilePageProps) => {
 					<ModalChangePass open2={open2} cancel2={handdleCancel2} />
 				</div>
 				<div className='grid gap-8'>
-					<CardBank />
+					<CardBank 
+					cardBank={user.card[0]}
+					userName={user.user.firstName + " " + user.user.lastName}
+					/>
+
 					{/* <CardBank /> */}
 					{/* <CardBank /> */}
 				</div>

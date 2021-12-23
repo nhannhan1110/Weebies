@@ -76,7 +76,9 @@ const ContactInfo = (props: Props) => {
           </div>
 
           <div className="col-md-6 d-flex">
-            <img src={backgournd} alt="" />
+          
+            <img src="https://findzon.com/wp-content/uploads/2020/05/red_746x419.jpeg" alt="" />
+            {/* <img src={backgournd} alt="" /> */}
           </div>
         </div>
       </div>

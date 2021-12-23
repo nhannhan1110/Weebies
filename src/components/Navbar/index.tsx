@@ -171,23 +171,9 @@ const Navbar = () => {
 									// onClick={toggl`eDropdown04}
 									ref={ref}
 									onClick={() => setIsComponentVisible(true)}>
-									<Link
-										className='nav-link dropdown-toggle active'
-										to='#'
-										id='dropdown04'>
+									<Link to='#' className='nav-link'>
 										Service
 									</Link>
-									{/* {isComponentVisible && (
-                    <div className="dropdown-menu" aria-labelledby="dropdown04">
-                      <Link
-                        className="dropdown-item"
-                        to="/shop"
-                        onClick={() => setIsComponentVisible(false)}
-                      >
-                        Product
-                      </Link>
-                    </div>
-                  )} */}
 								</li>
 
 								<li className='nav-item'>

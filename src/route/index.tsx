@@ -16,6 +16,8 @@ import { About } from '../pages/About';
 import { PayIn } from '../pages/PayIn';
 import { Transfer } from '../pages/Transfer';
 import History from '../pages/History';
+import {Contact} from '../pages/Contact';
+
 interface IRoute {
 	exact: Boolean;
 	path: string;
@@ -112,7 +114,17 @@ const routes: Array<IRoute> = [
 		),
 		path: '/history',
 		exact: true
+	},
+	{
+		child: (
+			<>
+				<Contact />
+			</>
+		),
+		path: '/contact',
+		exact: true
 	}
+
 ];
 // History
 
