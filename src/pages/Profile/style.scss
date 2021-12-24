@@ -7,15 +7,16 @@
     margin-bottom: $pm-80;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     font-family: "Poppins", Arial, sans-serif;
-    padding: 40px 0;
+    padding-bottom: 40px;
 
     &-avatar {
       position: absolute;
-      left: 44%;
-      top: 18%;
+      left: 50%;
+      bottom: 0;
       height: 150px;
       width: 150px;
-      margin: 0 auto;
+      transform: translate(-50%, 50%);
+      border-radius: 50%;
 
       & img {
         border-radius: 50%;

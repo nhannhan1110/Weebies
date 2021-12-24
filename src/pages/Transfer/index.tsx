@@ -27,6 +27,7 @@ export const Transfer = (props: TransferProps) => {
 	});
 	const submit = async (data: any) => {
 		const obj = {
+			cardNumberSender:data.yourCard,
 			cardNumber: data.idcard,
 			transactionAmount: data.money,
 			cvvNumber: data.CVV,
@@ -53,10 +54,18 @@ export const Transfer = (props: TransferProps) => {
 					<br />
 					<input
 						type='text'
+						{...register('yourCard')}
+						id='yourCard'
+						className='form-control'
+						placeholder='Mã số thẻ của bạn'
+					/>
+					<p className='text-danger'>{errors.yourCard?.message}</p>
+					<input
+						type='text'
 						{...register('idcard')}
 						id='idcard'
-						className='form-control'
-						placeholder='Mã số thẻ'
+						className='form-control mt-4'
+						placeholder='Mã số thẻ của người nhận'
 					/>
 					<p className='text-danger'>{errors.idcard?.message}</p>
 

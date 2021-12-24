@@ -44,10 +44,8 @@ export const SignUp = (props: SignInProps) => {
 			password: data.password,
 			isCreditCard: true,
 		};
-		console.log(`LHA:  ===> file: index.tsx ===> line 46 ===> obj`, obj);
+		
 		const result = await registerAsync(obj);
-		console.log(`LHA:  ===> file: index.tsx ===> line 48 ===> result`, result);
-
 		// console.log(result);
 		if ([200, 201].includes(result.statusCode)) {
 			//Luu token
@@ -187,16 +185,7 @@ export const SignUp = (props: SignInProps) => {
 					<p>
 						Already have account? <Link to='/signin'>Signin here</Link>
 					</p>
-					{/* <p>
-            Signin with{" "}
-            <a href="#">
-              <IoLogoTwitter />
-            </a>
-            {""}{" "}
-            <a href="#">
-              <IoLogoFacebook />
-            </a>
-          </p> */}
+					
 				</form>
 			</div>
 		</div>

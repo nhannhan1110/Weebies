@@ -28,23 +28,17 @@ export const PayIn = (props: PayInProps) => {
 			cardNumber: data.cardNumber,
 			transactionAmount: data.amount,
 			cvvNumber: data.cvv,
-			password: data.password
+			password: data.password,
+			paymentMethod: data.typeCard
 		};
-		if (data.typeCard === 2) {
-			// typeCard
-			const result = await paypalTransaction(obj);
-			console.log(
-				`LHA:  ===> file: index.tsx ===> line 36 ===> result`,
-				result
-			);
-      if(result.error===false)
-      {
-        window.open(result.data, "_blank");
-        notifySuccess("Payment Successful");
-        history.push('/');
-      }else {
-        notifyError(result.message);
-      }
+		// typeCard
+		const result = await paypalTransaction(obj);
+		if (result.error === false) {
+			window.open(result.data, '_blank');
+			notifySuccess('Payment Successful');
+			history.push('/');
+		} else {
+			notifyError(result.message);
 		}
 	};
   return (
@@ -112,7 +106,7 @@ export const PayIn = (props: PayInProps) => {
 						<br></br>
 						<input
 							type='radio'
-							value={2}
+							value={0}
 							defaultChecked={true}
 							{...register('typeCard')}
 							id='paypal'

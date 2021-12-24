@@ -10,14 +10,12 @@ const AboutInfo = (props: Props) => {
   return (
     <section className="ftco-section contact-section bg-light" style={{ fontSize: "20px", fontWeight: 500}}>
       <div className="container">
-          <h1>About Us</h1>
+          <h1 style={{paddingBottom:"20px"}}>About Us</h1>
           <div className="w-100" style={{ fontSize: "20px", textAlign: "justify", paddingBottom:"40px"}}>
               <p>Weebies emerged in January 2006, when long-time executive bankers Bill Carroll and Billy Carroll decided to start the process of organizing a bank with the image, 
               values and service level that would become incomparable to any other bank in the market. Weebies opened its first office in January 2007 in Pigeon Forge, Tennessee.
              Today, Weebies has 35 branches and one loan production office serving clients in Tennessee, Alabama and the Florida Panhandle.</p>
-              <p>Weebies emerged in January 2006, when long-time executive bankers Bill Carroll and Billy Carroll decided to start the process of organizing a bank with the image, 
-              values and service level that would become incomparable to any other bank in the market. Weebies opened its first office in January 2007 in Pigeon Forge, Tennessee.
-             Today, Weebies has 35 branches and one loan production office serving clients in Tennessee, Alabama and the Florida Panhandle.</p>
+              <p>Recruiting the best people, delivering exceptional client service, strategic branching and a conservative and disciplined approach to lending have all given rise to SmartBank’s success. At SmartBank, we are committed to creating a better bank, and we will continue to work hard and capitalize on opportunities that build value for our shareholders, clients and associates.</p>
           </div>
       </div>
 

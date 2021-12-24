@@ -1,4 +1,5 @@
 export interface AuthStateTypes {
   status?: string;
-  user?: any;
+	user?: any;
+	indexCard: number;
 }

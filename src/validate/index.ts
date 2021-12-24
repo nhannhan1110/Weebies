@@ -52,6 +52,11 @@ export const updateInfoSchema = yup.object().shape({
 export const transferSchema = yup.object().shape({
 	idcard: yup.string().required('Please enter the required field'),
 	money: yup.string().required('Please enter the required field'),
+	yourCard: yup.string().required('Please enter the required field'),
 	CVV: yup.string().required('Please enter the required field'),
 	password: yup.string().required('Please enter the required field')
+});
+export const createCardSchema = yup.object().shape({
+	password: yup.string().required('Please enter the required field'),
+	isCreditCard: yup.string().required('Please enter the required field'),
 });

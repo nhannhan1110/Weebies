@@ -2,8 +2,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserStateTypes } from "../type";
 
 const initialState: Partial<UserStateTypes> = {
-  status: "idle",
-  user: null,
+  status: 'idle',
+	user: null,
+	indexCard: -1
 };
 
 export const userSlice = createSlice({

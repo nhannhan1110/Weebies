@@ -138,7 +138,7 @@ const Navbar = () => {
 										<div className='w-[50px] h-[50px]'>
 											<img
 												className='object-cover w-full h-full'
-												src={user?.avatar}
+												src={user?.user.avatar}
 												style={{ borderRadius: '50%' }}
 											/>
 										</div>

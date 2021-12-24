@@ -1,4 +1,5 @@
 import React from 'react';
+import dayjs from "dayjs";
 
 interface Props {
 	cardBank: any;
@@ -40,12 +41,12 @@ const CardBank = (props: Props) => {
                   <div className="">
                     <p className="font-light text-base">{userName}</p>
                     <p className="font-medium tracking-wider text-sm">
-                      So TK 18526967
+                        So TK {cardBank.bankNumber}
                     </p>
                   </div>
                   <div className="">
                     <p className="font-light text-base">Valid</p>
-                    <p className="font-medium tracking-wider text-sm">03/25</p>
+                    <p className="font-medium tracking-wider text-sm">{dayjs(cardBank.createdAt).add(5,'y').format('MM/YY')}</p>
                   </div>
                 </div>
 				<div className="flex flex-col justify-end">
