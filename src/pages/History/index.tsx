@@ -97,7 +97,7 @@ const History = (props: Props) => {
 															<div className='text-base font-medium text-gray-900'>
 															{item.sender.firstName} {item.sender.lastName}
 															</div>
-															<div className='text-base text-gray-500'>
+															<div className='text-base text-gray-500 text-center'>
 															{hideTextIdCard(item.cardSender.cardNumber)}
 															</div>
 														</div>
@@ -108,13 +108,13 @@ const History = (props: Props) => {
 													{item.transaction.transactionAmount} USD
 													</div>
 												</td>
-												<td className='px-6 py-4 whitespace-nowrap'>
+												<td className='px-6 py-4 whitespace-nowrap text text-center'>
 													{' '}
 													{dayjs(item.transaction.createdAt).format(
 														'HH:mm DD/MM/YYYY'
 													)}
 												</td>
-												<td className='px-6 py-4 whitespace-nowrap text-base text-gray-500'>
+												<td className='px-6 py-4 whitespace-nowrap text-base text-gray-500 text-center'>
 													<span className='px-4 py-2 inline-flex text-base leading-5 font-semibold rounded-full bg-green-100 text-green-800'>
 													{status[item.transaction.status]}
 													</span>
