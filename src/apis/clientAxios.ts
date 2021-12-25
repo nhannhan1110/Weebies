@@ -2,7 +2,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import queryString from 'query-string';
 const axiosClient = axios.create({
-	baseURL: 'http://127.0.0.1:3005',
+	baseURL: 'https://studentitdemoapp.tk/',
 	timeout: 20000,
 	headers: {
 		'Content-Type': 'application/json',
