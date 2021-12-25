@@ -1,16 +1,16 @@
+import dayjs from 'dayjs';
 import React from 'react';
-import { historyTransaction } from '../../apis/transaction/historyTransaction';
+import { historyTransactionAdmin } from '../../apis/transaction/historyTransactionAdmin';
 import bg1 from '../../images/bg_1.jpg';
 import { hideTextIdCard } from '../../utils';
-import dayjs from 'dayjs';
 
 interface Props {}
 
-const History = (props: Props) => {
+const HistoryAdmin = (props: Props) => {
 	const [histories, setHistories] = React.useState([]);
 	const status = ['Transfers', 'Received Money', 'Recharge'];
 	const historyApi = async () => {
-		const results = await historyTransaction();
+		const results = await historyTransactionAdmin();
 		setHistories(results.data);
 	};
 
@@ -88,35 +88,34 @@ const History = (props: Props) => {
 													<div className='flex items-center'>
 														<div className='flex-shrink-0 h-10 w-10'>
 															<img
-																className='h-10 w-10 rounded-full'
-																src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60'
-																alt=''
+																className='h-10 w-10 rounded-full bg-gray-400'
+																src={item.avatar}
 															/>
 														</div>
-														<div className='ml-4'>
-															<div className='text-base font-medium text-gray-900'>
-															{item.sender.firstName} {item.sender.lastName}
+														<div className='ml-4 text-center'>
+															<div className='text-base font-medium text-gray-900 '>
+																{item.sender.firstName} {item.sender.lastName}
 															</div>
-															<div className='text-base text-gray-500'>
-															{hideTextIdCard(item.cardSender.cardNumber)}
+															<div className='text-base text-gray-500 '>
+																{hideTextIdCard(item.cardSender.cardNumber)}
 															</div>
 														</div>
 													</div>
 												</td>
 												<td className='px-6 py-4 whitespace-nowrap'>
 													<div className='text-base text-gray-900 text-center'>
-													{item.transaction.transactionAmount} USD
+														{item.transaction.transactionAmount} USD
 													</div>
 												</td>
-												<td className='px-6 py-4 whitespace-nowrap'>
+												<td className='px-6 py-4 whitespace-nowrap text-center'>
 													{' '}
 													{dayjs(item.transaction.createdAt).format(
 														'HH:mm DD/MM/YYYY'
 													)}
 												</td>
-												<td className='px-6 py-4 whitespace-nowrap text-base text-gray-500'>
+												<td className='px-6 py-4 whitespace-nowrap text-base text-gray-500 text-center'>
 													<span className='px-4 py-2 inline-flex text-base leading-5 font-semibold rounded-full bg-green-100 text-green-800'>
-													{status[item.transaction.status]}
+														{status[item.transaction.status]}
 													</span>
 												</td>
 											</tr>
@@ -132,4 +131,4 @@ const History = (props: Props) => {
 	);
 };
 
-export default History;
+export default HistoryAdmin;

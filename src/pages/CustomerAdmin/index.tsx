@@ -1,17 +1,21 @@
+import dayjs from 'dayjs';
 import React from 'react';
-import { historyTransaction } from '../../apis/transaction/historyTransaction';
+import { getAllUserApi } from '../../apis/user/getAllUser.api';
 import bg1 from '../../images/bg_1.jpg';
 import { hideTextIdCard } from '../../utils';
-import dayjs from 'dayjs';
 
 interface Props {}
 
-const History = (props: Props) => {
-	const [histories, setHistories] = React.useState([]);
+const CustomerAdmin = (props: Props) => {
+	const [customers, setCustomers] = React.useState([]);
 	const status = ['Transfers', 'Received Money', 'Recharge'];
 	const historyApi = async () => {
-		const results = await historyTransaction();
-		setHistories(results.data);
+		const results = await getAllUserApi();
+		console.log(
+			`LHA:  ===> file: index.tsx ===> line 14 ===> results`,
+			results
+		);
+		setCustomers(results.data);
 	};
 
 	React.useEffect(() => {
@@ -62,61 +66,68 @@ const History = (props: Props) => {
 											<th
 												scope='col'
 												className='text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
-												Id Card
+												Name
 											</th>
 											<th
 												scope='col'
 												className='text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
-												Money
+												Email
 											</th>
 											<th
 												scope='col'
 												className=' text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
-												Date
+												Phone
 											</th>
 											<th
 												scope='col'
 												className=' text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
-												Status
+												Birthday
+											</th>
+											<th
+												scope='col'
+												className=' text-center px-6 py-3 text-base font-medium text-gray-500 uppercase tracking-wider'>
+												Career
 											</th>
 										</tr>
 									</thead>
 									<tbody className='bg-white divide-y divide-gray-200'>
-										{histories.map((item: any, index) => (
+										{customers.map((item: any, index) => (
 											<tr key={index}>
 												<td className='px-6 py-4 whitespace-nowrap'>
 													<div className='flex items-center'>
-														<div className='flex-shrink-0 h-10 w-10'>
+														<div className='flex-shrink-0 h-10 w-10 rounded-full border-none'>
 															<img
-																className='h-10 w-10 rounded-full'
-																src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60'
-																alt=''
+																className='h-10 w-10 rounded-full bg-gray-400'
+																src={item.avatar}
+																// alt='avatar'
 															/>
 														</div>
 														<div className='ml-4'>
 															<div className='text-base font-medium text-gray-900'>
-															{item.sender.firstName} {item.sender.lastName}
+																{item.firstName} {item.lastName}
 															</div>
-															<div className='text-base text-gray-500'>
-															{hideTextIdCard(item.cardSender.cardNumber)}
-															</div>
+															{/* <div className='text-base text-gray-500'>
+																{item.identityCardNumber}
+															</div> */}
 														</div>
 													</div>
 												</td>
 												<td className='px-6 py-4 whitespace-nowrap'>
 													<div className='text-base text-gray-900 text-center'>
-													{item.transaction.transactionAmount} USD
+														{item.email}
 													</div>
 												</td>
-												<td className='px-6 py-4 whitespace-nowrap'>
-													{' '}
-													{dayjs(item.transaction.createdAt).format(
-														'HH:mm DD/MM/YYYY'
-													)}
+												<td className='px-9 py-4 whitespace-nowrap'>
+													<div className='text-base text-gray-900 px-10 text-center' >
+														{item.phone}
+													</div>
 												</td>
-												<td className='px-6 py-4 whitespace-nowrap text-base text-gray-500'>
-													<span className='px-4 py-2 inline-flex text-base leading-5 font-semibold rounded-full bg-green-100 text-green-800'>
-													{status[item.transaction.status]}
+												<td className='px-6 py-4 whitespace-nowrap text-center'>
+													{dayjs(item.birthday).format('DD/MM/YYYY')}
+												</td>
+												<td className='px-6 py-4 whitespace-nowrap text-base text-gray-500 text-center'>
+													<span className='px-4 py-2 inline-flex text-base leading-5 font-semibold rounded-full bg-green-100 text-green-800 '>
+														{item.career}
 													</span>
 												</td>
 											</tr>
@@ -132,4 +143,4 @@ const History = (props: Props) => {
 	);
 };
 
-export default History;
+export default CustomerAdmin;

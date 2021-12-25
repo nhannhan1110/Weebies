@@ -17,6 +17,8 @@ import { PayIn } from '../pages/PayIn';
 import { Transfer } from '../pages/Transfer';
 import History from '../pages/History';
 import {Contact} from '../pages/Contact';
+import HistoryAdmin from '../pages/HistoryAdmin';
+import CustomerAdmin from '../pages/CustomerAdmin';
 
 interface IRoute {
 	exact: Boolean;
@@ -122,6 +124,24 @@ const routes: Array<IRoute> = [
 			</>
 		),
 		path: '/contact',
+		exact: true
+	},
+	{
+		child: (
+			<>
+				<HistoryAdmin />
+			</>
+		),
+		path: '/historyAdmin',
+		exact: true
+	},
+	{
+		child: (
+			<>
+				<CustomerAdmin />
+			</>
+		),
+		path: '/customerAdmin',
 		exact: true
 	}
 
